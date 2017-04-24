@@ -1,0 +1,28 @@
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>websocket demo</title>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script>
+		$(function(){
+			$ul = $('#msg-list');
+			var ws=new WebSocket("ws://192.168.8.122/echo")
+			ws.onmessage = function(e){
+				$('<li>').text(e.data).appendTo($ul)
+			}
+			$("#send_btn").click(function(){
+				var data = $("#send_data").val()
+				ws.send(data)
+			})
+		})
+	</script>
+</head>
+<body>
+<inut id="send_data" type="text" />
+<input type="button" id="send_btn value="send" /">
+<ul id="msg-list">
+
+</ul>
+
+</body>
+</html>

@@ -55,6 +55,11 @@ GET     /EditPwd/                               User.EditPwd
 POST    /EditPwd/                               User.EditPwd
 GET     /AdminPanel/                            User.AdminPanel
 
+#新版权限管理
+GET /Authorize/                                 Authorize.index
+GET /EditAuthorize/                             Authorize.EditAuthorize
+POST /EditAuthoize/                             Authorize.EditAuthorize
+
 # 模块
 GET     /Module/                              	Module.Index
 

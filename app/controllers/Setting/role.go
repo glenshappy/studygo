@@ -365,16 +365,16 @@ func (c Role) SetStatus(role *models.Role) revel.Result {
 
 			data["status"] = "1"
 			data["message"] = "设置成功!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			data["status"] = "0"
 			data["message"] = "设置失败!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		}
 	} else {
 		data["status"] = "0"
 		data["message"] = "设置失败!"
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	}
 }
 
@@ -393,15 +393,15 @@ func (c Role) Delete(role *models.Role) revel.Result {
 		if role.DelByID(Id) {
 			data["status"] = "1"
 			data["message"] = "删除成功!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			data["status"] = "0"
 			data["message"] = "删除失败!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		}
 	} else {
 		data["status"] = "0"
 		data["message"] = "删除失败!"
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	}
 }

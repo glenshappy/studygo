@@ -117,12 +117,12 @@ func (c Content) CateNameSearch(category *models.Category) revel.Result {
 	var catename string = c.Params.Get("catename")
 
 	if len(catename) < 0 {
-		return c.RenderHtml("")
+		return c.RenderHTML("")
 	}
 
 	data := category.GetCateNameHtml(catename)
 
-	return c.RenderHtml(data)
+	return c.RenderHTML(data)
 }
 
 //推送
@@ -174,7 +174,7 @@ func (c Content) Remove(article *models.Article) revel.Result {
 			}
 		}
 
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	}
 }
 

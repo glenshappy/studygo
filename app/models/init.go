@@ -72,15 +72,25 @@ func InitDB() {
 		revel.WARN.Printf("DB_Write错误: %v", err)
 	}
 
+	result1,err1:=DB_Read.Query("set names utf8");
+	if err1!=nil {
+		fmt.Println("error db_read occurred:%v",result1);
+	}
+	result2,err2:=DB_Write.Query("set names utf8");
+	if err2!=nil {
+		fmt.Println("error db_write occurred:$v",result2);
+	}
+	fmt.Println(9999999999999);
 	//缓存方式是存放到内存中，缓存struct的记录数为1000条
 	//cacher := xorm.NewLRUCacher(xorm.NewMemoryStore(), 1000)
 	//DB_Read.SetDefaultCacher(cacher)
 	//DB_Write.SetDefaultCacher(cacher)
 
 	//控制台打印SQL语句
-	//DB_Read.ShowSQL = true
-	//DB_Write.ShowSQL = true
-
+//	DB_Read.ShowSQL(true)
+//	DB_Write.ShowSQL(true)
+	DB_Read.ShowSQL(true)
+	DB_Write.ShowSQL(true)
 	//控制台打印调试信息
 	//DB_Read.ShowDebug = true
 	//DB_Write.ShowDebug = true

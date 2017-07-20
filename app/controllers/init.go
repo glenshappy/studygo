@@ -31,7 +31,7 @@ func init() {
 	revel.OnAppStart(Bootstrap)
 
 	//检测是否登陆
-	revel.InterceptFunc(CheckLogin, revel.BEFORE, revel.ALL_CONTROLLERS)
+	revel.InterceptFunc(CheckLogin, revel.BEFORE,&App{})
 }
 
 //系统初始化变量
@@ -120,10 +120,10 @@ func CheckLogin(c *revel.Controller) revel.Result {
 
 		if LANG, ok := c.Session["Lang"]; ok {
 			//设置语言
-			c.RenderArgs["currentLocale"] = LANG
+			c.ViewArgs["currentLocale"] = LANG
 		} else {
 			//设置默认语言
-			c.RenderArgs["currentLocale"] = "zh"
+			c.ViewArgs["currentLocale"] = "zh"
 		}
 
 		return nil
@@ -145,25 +145,25 @@ func CheckLogin(c *revel.Controller) revel.Result {
 			}
 
 			//控制器
-			c.RenderArgs["Controller"] = c.Name
+			c.ViewArgs["Controller"] = c.Name
 			//动作
-			c.RenderArgs["action"] = c.Action
+			c.ViewArgs["action"] = c.Action
 			//模型
-			c.RenderArgs["Model"] = c.MethodName
+			c.ViewArgs["Model"] = c.MethodName
 
 			//登陆信息
-			c.RenderArgs["admin_info"] = admin_info
+			c.ViewArgs["admin_info"] = admin_info
 
 			//设置语言
-			c.RenderArgs["currentLocale"] = admin_info.Lang
+			c.ViewArgs["currentLocale"] = admin_info.Lang
 		} else {
 
 			//控制器
-			c.RenderArgs["Controller"] = c.Name
+			c.ViewArgs["Controller"] = c.Name
 			//动作
-			c.RenderArgs["action"] = c.Action
+			c.ViewArgs["action"] = c.Action
 			//模型
-			c.RenderArgs["Model"] = c.MethodName
+			c.ViewArgs["Model"] = c.MethodName
 
 			return c.Redirect("/Login/")
 		}

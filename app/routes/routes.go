@@ -14,7 +14,7 @@ func (_ tApp) Index(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "admin", admin)
-	return revel.MainRouter.Reverse("App.Index", args).Url
+	return revel.MainRouter.Reverse("App.Index", args).URL
 }
 
 func (_ tApp) Main(
@@ -23,202 +23,7 @@ func (_ tApp) Main(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "admin", admin)
-	return revel.MainRouter.Reverse("App.Main", args).Url
-}
-
-
-type tCategory struct {}
-var Category tCategory
-
-
-func (_ tCategory) Index(
-		category interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "category", category)
-	return revel.MainRouter.Reverse("Category.Index", args).Url
-}
-
-func (_ tCategory) Add(
-		category interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "category", category)
-	return revel.MainRouter.Reverse("Category.Add", args).Url
-}
-
-func (_ tCategory) Edit(
-		category interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "category", category)
-	return revel.MainRouter.Reverse("Category.Edit", args).Url
-}
-
-func (_ tCategory) Delete(
-		category interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "category", category)
-	return revel.MainRouter.Reverse("Category.Delete", args).Url
-}
-
-
-type tContent struct {}
-var Content tContent
-
-
-func (_ tContent) Index(
-		article interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "article", article)
-	return revel.MainRouter.Reverse("Content.Index", args).Url
-}
-
-func (_ tContent) Left(
-		article interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "article", article)
-	return revel.MainRouter.Reverse("Content.Left", args).Url
-}
-
-func (_ tContent) List(
-		article interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "article", article)
-	return revel.MainRouter.Reverse("Content.List", args).Url
-}
-
-func (_ tContent) Keywords(
-		article interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "article", article)
-	return revel.MainRouter.Reverse("Content.Keywords", args).Url
-}
-
-func (_ tContent) Delete(
-		article interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "article", article)
-	return revel.MainRouter.Reverse("Content.Delete", args).Url
-}
-
-func (_ tContent) CateNameSearch(
-		category interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "category", category)
-	return revel.MainRouter.Reverse("Content.CateNameSearch", args).Url
-}
-
-func (_ tContent) Push(
-		article interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "article", article)
-	return revel.MainRouter.Reverse("Content.Push", args).Url
-}
-
-func (_ tContent) Remove(
-		article interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "article", article)
-	return revel.MainRouter.Reverse("Content.Remove", args).Url
-}
-
-func (_ tContent) Comment(
-		article interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "article", article)
-	return revel.MainRouter.Reverse("Content.Comment", args).Url
-}
-
-func (_ tContent) Relationlist(
-		article interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "article", article)
-	return revel.MainRouter.Reverse("Content.Relationlist", args).Url
-}
-
-func (_ tContent) AddContent(
-		article interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "article", article)
-	return revel.MainRouter.Reverse("Content.AddContent", args).Url
-}
-
-func (_ tContent) Add(
-		article interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "article", article)
-	return revel.MainRouter.Reverse("Content.Add", args).Url
-}
-
-func (_ tContent) Edit(
-		article interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "article", article)
-	return revel.MainRouter.Reverse("Content.Edit", args).Url
-}
-
-
-type tFocus struct {}
-var Focus tFocus
-
-
-func (_ tFocus) Index(
-		focus interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "focus", focus)
-	return revel.MainRouter.Reverse("Focus.Index", args).Url
-}
-
-func (_ tFocus) Add(
-		focus interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "focus", focus)
-	return revel.MainRouter.Reverse("Focus.Add", args).Url
-}
-
-func (_ tFocus) Edit(
-		focus interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "focus", focus)
-	return revel.MainRouter.Reverse("Focus.Edit", args).Url
+	return revel.MainRouter.Reverse("App.Main", args).URL
 }
 
 
@@ -232,7 +37,7 @@ func (_ tFocusCate) Index(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "focusCate", focusCate)
-	return revel.MainRouter.Reverse("FocusCate.Index", args).Url
+	return revel.MainRouter.Reverse("FocusCate.Index", args).URL
 }
 
 func (_ tFocusCate) Add(
@@ -241,7 +46,7 @@ func (_ tFocusCate) Add(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "focusCate", focusCate)
-	return revel.MainRouter.Reverse("FocusCate.Add", args).Url
+	return revel.MainRouter.Reverse("FocusCate.Add", args).URL
 }
 
 func (_ tFocusCate) Edit(
@@ -250,7 +55,7 @@ func (_ tFocusCate) Edit(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "focusCate", focusCate)
-	return revel.MainRouter.Reverse("FocusCate.Edit", args).Url
+	return revel.MainRouter.Reverse("FocusCate.Edit", args).URL
 }
 
 func (_ tFocusCate) Delete(
@@ -259,7 +64,214 @@ func (_ tFocusCate) Delete(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "focusCate", focusCate)
-	return revel.MainRouter.Reverse("FocusCate.Delete", args).Url
+	return revel.MainRouter.Reverse("FocusCate.Delete", args).URL
+}
+
+
+type tCategory struct {}
+var Category tCategory
+
+
+func (_ tCategory) Index(
+		category interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "category", category)
+	return revel.MainRouter.Reverse("Category.Index", args).URL
+}
+
+func (_ tCategory) Add(
+		category interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "category", category)
+	return revel.MainRouter.Reverse("Category.Add", args).URL
+}
+
+func (_ tCategory) Edit(
+		category interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "category", category)
+	return revel.MainRouter.Reverse("Category.Edit", args).URL
+}
+
+func (_ tCategory) Delete(
+		category interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "category", category)
+	return revel.MainRouter.Reverse("Category.Delete", args).URL
+}
+
+
+type tContent struct {}
+var Content tContent
+
+
+func (_ tContent) Index(
+		article interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "article", article)
+	return revel.MainRouter.Reverse("Content.Index", args).URL
+}
+
+func (_ tContent) Left(
+		article interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "article", article)
+	return revel.MainRouter.Reverse("Content.Left", args).URL
+}
+
+func (_ tContent) List(
+		article interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "article", article)
+	return revel.MainRouter.Reverse("Content.List", args).URL
+}
+
+func (_ tContent) Keywords(
+		article interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "article", article)
+	return revel.MainRouter.Reverse("Content.Keywords", args).URL
+}
+
+func (_ tContent) Delete(
+		article interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "article", article)
+	return revel.MainRouter.Reverse("Content.Delete", args).URL
+}
+
+func (_ tContent) CateNameSearch(
+		category interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "category", category)
+	return revel.MainRouter.Reverse("Content.CateNameSearch", args).URL
+}
+
+func (_ tContent) Push(
+		article interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "article", article)
+	return revel.MainRouter.Reverse("Content.Push", args).URL
+}
+
+func (_ tContent) Remove(
+		article interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "article", article)
+	return revel.MainRouter.Reverse("Content.Remove", args).URL
+}
+
+func (_ tContent) Comment(
+		article interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "article", article)
+	return revel.MainRouter.Reverse("Content.Comment", args).URL
+}
+
+func (_ tContent) Relationlist(
+		article interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "article", article)
+	return revel.MainRouter.Reverse("Content.Relationlist", args).URL
+}
+
+func (_ tContent) AddContent(
+		article interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "article", article)
+	return revel.MainRouter.Reverse("Content.AddContent", args).URL
+}
+
+func (_ tContent) Add(
+		article interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "article", article)
+	return revel.MainRouter.Reverse("Content.Add", args).URL
+}
+
+func (_ tContent) Edit(
+		article interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "article", article)
+	return revel.MainRouter.Reverse("Content.Edit", args).URL
+}
+
+
+type tFocus struct {}
+var Focus tFocus
+
+
+func (_ tFocus) Index(
+		focus interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "focus", focus)
+	return revel.MainRouter.Reverse("Focus.Index", args).URL
+}
+
+func (_ tFocus) Add(
+		focus interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "focus", focus)
+	return revel.MainRouter.Reverse("Focus.Add", args).URL
+}
+
+func (_ tFocus) Edit(
+		focus interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "focus", focus)
+	return revel.MainRouter.Reverse("Focus.Edit", args).URL
+}
+
+
+type tExtend struct {}
+var Extend tExtend
+
+
+func (_ tExtend) Index(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("Extend.Index", args).URL
 }
 
 
@@ -273,7 +285,7 @@ func (_ tCopyfrom) Index(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "copyfrom", copyfrom)
-	return revel.MainRouter.Reverse("Copyfrom.Index", args).Url
+	return revel.MainRouter.Reverse("Copyfrom.Index", args).URL
 }
 
 func (_ tCopyfrom) Add(
@@ -282,7 +294,7 @@ func (_ tCopyfrom) Add(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "copyfrom", copyfrom)
-	return revel.MainRouter.Reverse("Copyfrom.Add", args).Url
+	return revel.MainRouter.Reverse("Copyfrom.Add", args).URL
 }
 
 func (_ tCopyfrom) Edit(
@@ -291,7 +303,7 @@ func (_ tCopyfrom) Edit(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "copyfrom", copyfrom)
-	return revel.MainRouter.Reverse("Copyfrom.Edit", args).Url
+	return revel.MainRouter.Reverse("Copyfrom.Edit", args).URL
 }
 
 func (_ tCopyfrom) Delete(
@@ -300,60 +312,7 @@ func (_ tCopyfrom) Delete(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "copyfrom", copyfrom)
-	return revel.MainRouter.Reverse("Copyfrom.Delete", args).Url
-}
-
-
-type tExtend struct {}
-var Extend tExtend
-
-
-func (_ tExtend) Index(
-		) string {
-	args := make(map[string]string)
-	
-	return revel.MainRouter.Reverse("Extend.Index", args).Url
-}
-
-
-type tAnnounce struct {}
-var Announce tAnnounce
-
-
-func (_ tAnnounce) Index(
-		announce interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "announce", announce)
-	return revel.MainRouter.Reverse("Announce.Index", args).Url
-}
-
-func (_ tAnnounce) Add(
-		announce interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "announce", announce)
-	return revel.MainRouter.Reverse("Announce.Add", args).Url
-}
-
-func (_ tAnnounce) Edit(
-		announce interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "announce", announce)
-	return revel.MainRouter.Reverse("Announce.Edit", args).Url
-}
-
-func (_ tAnnounce) Delete(
-		announce interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "announce", announce)
-	return revel.MainRouter.Reverse("Announce.Delete", args).Url
+	return revel.MainRouter.Reverse("Copyfrom.Delete", args).URL
 }
 
 
@@ -367,7 +326,7 @@ func (_ tComplaints) Index(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "complaints", complaints)
-	return revel.MainRouter.Reverse("Complaints.Index", args).Url
+	return revel.MainRouter.Reverse("Complaints.Index", args).URL
 }
 
 func (_ tComplaints) Delete(
@@ -376,7 +335,7 @@ func (_ tComplaints) Delete(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "complaints", complaints)
-	return revel.MainRouter.Reverse("Complaints.Delete", args).Url
+	return revel.MainRouter.Reverse("Complaints.Delete", args).URL
 }
 
 
@@ -388,7 +347,48 @@ func (_ tModule) Index(
 		) string {
 	args := make(map[string]string)
 	
-	return revel.MainRouter.Reverse("Module.Index", args).Url
+	return revel.MainRouter.Reverse("Module.Index", args).URL
+}
+
+
+type tAnnounce struct {}
+var Announce tAnnounce
+
+
+func (_ tAnnounce) Index(
+		announce interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "announce", announce)
+	return revel.MainRouter.Reverse("Announce.Index", args).URL
+}
+
+func (_ tAnnounce) Add(
+		announce interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "announce", announce)
+	return revel.MainRouter.Reverse("Announce.Add", args).URL
+}
+
+func (_ tAnnounce) Edit(
+		announce interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "announce", announce)
+	return revel.MainRouter.Reverse("Announce.Edit", args).URL
+}
+
+func (_ tAnnounce) Delete(
+		announce interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "announce", announce)
+	return revel.MainRouter.Reverse("Announce.Delete", args).URL
 }
 
 
@@ -400,7 +400,7 @@ func (_ tPanel) Index(
 		) string {
 	args := make(map[string]string)
 	
-	return revel.MainRouter.Reverse("Panel.Index", args).Url
+	return revel.MainRouter.Reverse("Panel.Index", args).URL
 }
 
 
@@ -412,97 +412,7 @@ func (_ tPlugin) Index(
 		) string {
 	args := make(map[string]string)
 	
-	return revel.MainRouter.Reverse("Plugin.Index", args).Url
-}
-
-
-type tAjax struct {}
-var Ajax tAjax
-
-
-func (_ tAjax) GetCaptcha(
-		) string {
-	args := make(map[string]string)
-	
-	return revel.MainRouter.Reverse("Ajax.GetCaptcha", args).Url
-}
-
-func (_ tAjax) Pos(
-		menu interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "menu", menu)
-	return revel.MainRouter.Reverse("Ajax.Pos", args).Url
-}
-
-func (_ tAjax) GetPanel(
-		admin_panel interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "admin_panel", admin_panel)
-	return revel.MainRouter.Reverse("Ajax.GetPanel", args).Url
-}
-
-func (_ tAjax) DelPanel(
-		admin_panel interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "admin_panel", admin_panel)
-	return revel.MainRouter.Reverse("Ajax.DelPanel", args).Url
-}
-
-func (_ tAjax) AddPanel(
-		admin_panel interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "admin_panel", admin_panel)
-	return revel.MainRouter.Reverse("Ajax.AddPanel", args).Url
-}
-
-func (_ tAjax) GetMessage(
-		) string {
-	args := make(map[string]string)
-	
-	return revel.MainRouter.Reverse("Ajax.GetMessage", args).Url
-}
-
-func (_ tAjax) ScreenLock(
-		) string {
-	args := make(map[string]string)
-	
-	return revel.MainRouter.Reverse("Ajax.ScreenLock", args).Url
-}
-
-func (_ tAjax) ScreenUnlock(
-		admin interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "admin", admin)
-	return revel.MainRouter.Reverse("Ajax.ScreenUnlock", args).Url
-}
-
-
-type tCaptcha struct {}
-var Captcha tCaptcha
-
-
-func (_ tCaptcha) Index(
-		) string {
-	args := make(map[string]string)
-	
-	return revel.MainRouter.Reverse("Captcha.Index", args).Url
-}
-
-func (_ tCaptcha) GetCaptchaId(
-		) string {
-	args := make(map[string]string)
-	
-	return revel.MainRouter.Reverse("Captcha.GetCaptchaId", args).Url
+	return revel.MainRouter.Reverse("Plugin.Index", args).URL
 }
 
 
@@ -516,7 +426,7 @@ func (_ tKindeditor) Manager(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "upload", upload)
-	return revel.MainRouter.Reverse("Kindeditor.Manager", args).Url
+	return revel.MainRouter.Reverse("Kindeditor.Manager", args).URL
 }
 
 func (_ tKindeditor) TitleImage(
@@ -525,7 +435,7 @@ func (_ tKindeditor) TitleImage(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "upload", upload)
-	return revel.MainRouter.Reverse("Kindeditor.TitleImage", args).Url
+	return revel.MainRouter.Reverse("Kindeditor.TitleImage", args).URL
 }
 
 func (_ tKindeditor) Upload(
@@ -534,7 +444,7 @@ func (_ tKindeditor) Upload(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "upload", upload)
-	return revel.MainRouter.Reverse("Kindeditor.Upload", args).Url
+	return revel.MainRouter.Reverse("Kindeditor.Upload", args).URL
 }
 
 func (_ tKindeditor) AnnounceImage(
@@ -543,42 +453,97 @@ func (_ tKindeditor) AnnounceImage(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "upload", upload)
-	return revel.MainRouter.Reverse("Kindeditor.AnnounceImage", args).Url
+	return revel.MainRouter.Reverse("Kindeditor.AnnounceImage", args).URL
 }
 
 
-type tPublic struct {}
-var Public tPublic
+type tCaptcha struct {}
+var Captcha tCaptcha
 
 
-func (_ tPublic) Map(
+func (_ tCaptcha) Index(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("Captcha.Index", args).URL
+}
+
+func (_ tCaptcha) GetCaptchaId(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("Captcha.GetCaptchaId", args).URL
+}
+
+
+type tAjax struct {}
+var Ajax tAjax
+
+
+func (_ tAjax) GetCaptcha(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("Ajax.GetCaptcha", args).URL
+}
+
+func (_ tAjax) Pos(
 		menu interface{},
 		) string {
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "menu", menu)
-	return revel.MainRouter.Reverse("Public.Map", args).Url
+	return revel.MainRouter.Reverse("Ajax.Pos", args).URL
 }
 
-func (_ tPublic) CreateHtml(
+func (_ tAjax) GetPanel(
+		admin_panel interface{},
 		) string {
 	args := make(map[string]string)
 	
-	return revel.MainRouter.Reverse("Public.CreateHtml", args).Url
+	revel.Unbind(args, "admin_panel", admin_panel)
+	return revel.MainRouter.Reverse("Ajax.GetPanel", args).URL
 }
 
-func (_ tPublic) Search(
+func (_ tAjax) DelPanel(
+		admin_panel interface{},
 		) string {
 	args := make(map[string]string)
 	
-	return revel.MainRouter.Reverse("Public.Search", args).Url
+	revel.Unbind(args, "admin_panel", admin_panel)
+	return revel.MainRouter.Reverse("Ajax.DelPanel", args).URL
 }
 
-func (_ tPublic) Message(
+func (_ tAjax) AddPanel(
+		admin_panel interface{},
 		) string {
 	args := make(map[string]string)
 	
-	return revel.MainRouter.Reverse("Public.Message", args).Url
+	revel.Unbind(args, "admin_panel", admin_panel)
+	return revel.MainRouter.Reverse("Ajax.AddPanel", args).URL
+}
+
+func (_ tAjax) GetMessage(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("Ajax.GetMessage", args).URL
+}
+
+func (_ tAjax) ScreenLock(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("Ajax.ScreenLock", args).URL
+}
+
+func (_ tAjax) ScreenUnlock(
+		admin interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "admin", admin)
+	return revel.MainRouter.Reverse("Ajax.ScreenUnlock", args).URL
 }
 
 
@@ -592,112 +557,42 @@ func (_ tTest) Index(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "admin", admin)
-	return revel.MainRouter.Reverse("Test.Index", args).Url
+	return revel.MainRouter.Reverse("Test.Index", args).URL
 }
 
 
-type tAdmin struct {}
-var Admin tAdmin
+type tPublic struct {}
+var Public tPublic
 
 
-func (_ tAdmin) Index(
-		admin interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "admin", admin)
-	return revel.MainRouter.Reverse("Admin.Index", args).Url
-}
-
-func (_ tAdmin) Add(
-		admin interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "admin", admin)
-	return revel.MainRouter.Reverse("Admin.Add", args).Url
-}
-
-func (_ tAdmin) Edit(
-		admin interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "admin", admin)
-	return revel.MainRouter.Reverse("Admin.Edit", args).Url
-}
-
-func (_ tAdmin) Delete(
-		admin interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "admin", admin)
-	return revel.MainRouter.Reverse("Admin.Delete", args).Url
-}
-
-
-type tLogs struct {}
-var Logs tLogs
-
-
-func (_ tLogs) Index(
-		logs interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "logs", logs)
-	return revel.MainRouter.Reverse("Logs.Index", args).Url
-}
-
-func (_ tLogs) DelAll(
-		logs interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "logs", logs)
-	return revel.MainRouter.Reverse("Logs.DelAll", args).Url
-}
-
-
-type tMenu struct {}
-var Menu tMenu
-
-
-func (_ tMenu) Index(
+func (_ tPublic) Map(
 		menu interface{},
 		) string {
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "menu", menu)
-	return revel.MainRouter.Reverse("Menu.Index", args).Url
+	return revel.MainRouter.Reverse("Public.Map", args).URL
 }
 
-func (_ tMenu) Add(
-		menu interface{},
+func (_ tPublic) CreateHtml(
 		) string {
 	args := make(map[string]string)
 	
-	revel.Unbind(args, "menu", menu)
-	return revel.MainRouter.Reverse("Menu.Add", args).Url
+	return revel.MainRouter.Reverse("Public.CreateHtml", args).URL
 }
 
-func (_ tMenu) Edit(
-		menu interface{},
+func (_ tPublic) Search(
 		) string {
 	args := make(map[string]string)
 	
-	revel.Unbind(args, "menu", menu)
-	return revel.MainRouter.Reverse("Menu.Edit", args).Url
+	return revel.MainRouter.Reverse("Public.Search", args).URL
 }
 
-func (_ tMenu) Delete(
-		menu interface{},
+func (_ tPublic) Message(
 		) string {
 	args := make(map[string]string)
 	
-	revel.Unbind(args, "menu", menu)
-	return revel.MainRouter.Reverse("Menu.Delete", args).Url
+	return revel.MainRouter.Reverse("Public.Message", args).URL
 }
 
 
@@ -711,7 +606,7 @@ func (_ tRole) Index(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "role", role)
-	return revel.MainRouter.Reverse("Role.Index", args).Url
+	return revel.MainRouter.Reverse("Role.Index", args).URL
 }
 
 func (_ tRole) Member(
@@ -720,7 +615,7 @@ func (_ tRole) Member(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "role", role)
-	return revel.MainRouter.Reverse("Role.Member", args).Url
+	return revel.MainRouter.Reverse("Role.Member", args).URL
 }
 
 func (_ tRole) Add(
@@ -729,7 +624,7 @@ func (_ tRole) Add(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "role", role)
-	return revel.MainRouter.Reverse("Role.Add", args).Url
+	return revel.MainRouter.Reverse("Role.Add", args).URL
 }
 
 func (_ tRole) Edit(
@@ -738,7 +633,7 @@ func (_ tRole) Edit(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "role", role)
-	return revel.MainRouter.Reverse("Role.Edit", args).Url
+	return revel.MainRouter.Reverse("Role.Edit", args).URL
 }
 
 func (_ tRole) SetStatus(
@@ -747,7 +642,7 @@ func (_ tRole) SetStatus(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "role", role)
-	return revel.MainRouter.Reverse("Role.SetStatus", args).Url
+	return revel.MainRouter.Reverse("Role.SetStatus", args).URL
 }
 
 func (_ tRole) Delete(
@@ -756,7 +651,7 @@ func (_ tRole) Delete(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "role", role)
-	return revel.MainRouter.Reverse("Role.Delete", args).Url
+	return revel.MainRouter.Reverse("Role.Delete", args).URL
 }
 
 
@@ -768,7 +663,7 @@ func (_ tSetting) Index(
 		) string {
 	args := make(map[string]string)
 	
-	return revel.MainRouter.Reverse("Setting.Index", args).Url
+	return revel.MainRouter.Reverse("Setting.Index", args).URL
 }
 
 
@@ -780,7 +675,112 @@ func (_ tTask) Index(
 		) string {
 	args := make(map[string]string)
 	
-	return revel.MainRouter.Reverse("Task.Index", args).Url
+	return revel.MainRouter.Reverse("Task.Index", args).URL
+}
+
+
+type tAdmin struct {}
+var Admin tAdmin
+
+
+func (_ tAdmin) Index(
+		admin interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "admin", admin)
+	return revel.MainRouter.Reverse("Admin.Index", args).URL
+}
+
+func (_ tAdmin) Add(
+		admin interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "admin", admin)
+	return revel.MainRouter.Reverse("Admin.Add", args).URL
+}
+
+func (_ tAdmin) Edit(
+		admin interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "admin", admin)
+	return revel.MainRouter.Reverse("Admin.Edit", args).URL
+}
+
+func (_ tAdmin) Delete(
+		admin interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "admin", admin)
+	return revel.MainRouter.Reverse("Admin.Delete", args).URL
+}
+
+
+type tMenu struct {}
+var Menu tMenu
+
+
+func (_ tMenu) Index(
+		menu interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "menu", menu)
+	return revel.MainRouter.Reverse("Menu.Index", args).URL
+}
+
+func (_ tMenu) Add(
+		menu interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "menu", menu)
+	return revel.MainRouter.Reverse("Menu.Add", args).URL
+}
+
+func (_ tMenu) Edit(
+		menu interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "menu", menu)
+	return revel.MainRouter.Reverse("Menu.Edit", args).URL
+}
+
+func (_ tMenu) Delete(
+		menu interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "menu", menu)
+	return revel.MainRouter.Reverse("Menu.Delete", args).URL
+}
+
+
+type tLogs struct {}
+var Logs tLogs
+
+
+func (_ tLogs) Index(
+		logs interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "logs", logs)
+	return revel.MainRouter.Reverse("Logs.Index", args).URL
+}
+
+func (_ tLogs) DelAll(
+		logs interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "logs", logs)
+	return revel.MainRouter.Reverse("Logs.DelAll", args).URL
 }
 
 
@@ -794,7 +794,7 @@ func (_ tStyle) Index(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "template", template)
-	return revel.MainRouter.Reverse("Style.Index", args).Url
+	return revel.MainRouter.Reverse("Style.Index", args).URL
 }
 
 func (_ tStyle) File(
@@ -803,7 +803,7 @@ func (_ tStyle) File(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "template", template)
-	return revel.MainRouter.Reverse("Style.File", args).Url
+	return revel.MainRouter.Reverse("Style.File", args).URL
 }
 
 func (_ tStyle) Import(
@@ -812,7 +812,7 @@ func (_ tStyle) Import(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "template", template)
-	return revel.MainRouter.Reverse("Style.Import", args).Url
+	return revel.MainRouter.Reverse("Style.Import", args).URL
 }
 
 func (_ tStyle) Setstatus(
@@ -821,7 +821,7 @@ func (_ tStyle) Setstatus(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "template", template)
-	return revel.MainRouter.Reverse("Style.Setstatus", args).Url
+	return revel.MainRouter.Reverse("Style.Setstatus", args).URL
 }
 
 func (_ tStyle) Edit(
@@ -830,7 +830,7 @@ func (_ tStyle) Edit(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "template", template)
-	return revel.MainRouter.Reverse("Style.Edit", args).Url
+	return revel.MainRouter.Reverse("Style.Edit", args).URL
 }
 
 
@@ -844,7 +844,7 @@ func (_ tGroup) Index(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "user_group", user_group)
-	return revel.MainRouter.Reverse("Group.Index", args).Url
+	return revel.MainRouter.Reverse("Group.Index", args).URL
 }
 
 func (_ tGroup) Add(
@@ -853,7 +853,7 @@ func (_ tGroup) Add(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "user_group", user_group)
-	return revel.MainRouter.Reverse("Group.Add", args).Url
+	return revel.MainRouter.Reverse("Group.Add", args).URL
 }
 
 func (_ tGroup) Edit(
@@ -862,7 +862,7 @@ func (_ tGroup) Edit(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "user_group", user_group)
-	return revel.MainRouter.Reverse("Group.Edit", args).Url
+	return revel.MainRouter.Reverse("Group.Edit", args).URL
 }
 
 
@@ -876,7 +876,7 @@ func (_ tUser) Index(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "user", user)
-	return revel.MainRouter.Reverse("User.Index", args).Url
+	return revel.MainRouter.Reverse("User.Index", args).URL
 }
 
 func (_ tUser) Add(
@@ -885,7 +885,7 @@ func (_ tUser) Add(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "user", user)
-	return revel.MainRouter.Reverse("User.Add", args).Url
+	return revel.MainRouter.Reverse("User.Add", args).URL
 }
 
 func (_ tUser) Edit(
@@ -894,7 +894,7 @@ func (_ tUser) Edit(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "user", user)
-	return revel.MainRouter.Reverse("User.Edit", args).Url
+	return revel.MainRouter.Reverse("User.Edit", args).URL
 }
 
 func (_ tUser) Delete(
@@ -903,7 +903,7 @@ func (_ tUser) Delete(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "user", user)
-	return revel.MainRouter.Reverse("User.Delete", args).Url
+	return revel.MainRouter.Reverse("User.Delete", args).URL
 }
 
 func (_ tUser) Lock(
@@ -912,7 +912,7 @@ func (_ tUser) Lock(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "user", user)
-	return revel.MainRouter.Reverse("User.Lock", args).Url
+	return revel.MainRouter.Reverse("User.Lock", args).URL
 }
 
 func (_ tUser) Unlock(
@@ -921,7 +921,7 @@ func (_ tUser) Unlock(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "user", user)
-	return revel.MainRouter.Reverse("User.Unlock", args).Url
+	return revel.MainRouter.Reverse("User.Unlock", args).URL
 }
 
 func (_ tUser) Move(
@@ -930,7 +930,7 @@ func (_ tUser) Move(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "user", user)
-	return revel.MainRouter.Reverse("User.Move", args).Url
+	return revel.MainRouter.Reverse("User.Move", args).URL
 }
 
 func (_ tUser) UserInfo(
@@ -939,7 +939,7 @@ func (_ tUser) UserInfo(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "user", user)
-	return revel.MainRouter.Reverse("User.UserInfo", args).Url
+	return revel.MainRouter.Reverse("User.UserInfo", args).URL
 }
 
 func (_ tUser) Login(
@@ -948,7 +948,7 @@ func (_ tUser) Login(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "admin", admin)
-	return revel.MainRouter.Reverse("User.Login", args).Url
+	return revel.MainRouter.Reverse("User.Login", args).URL
 }
 
 func (_ tUser) Logout(
@@ -957,7 +957,7 @@ func (_ tUser) Logout(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "admin", admin)
-	return revel.MainRouter.Reverse("User.Logout", args).Url
+	return revel.MainRouter.Reverse("User.Logout", args).URL
 }
 
 func (_ tUser) EditInfo(
@@ -966,7 +966,7 @@ func (_ tUser) EditInfo(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "admin", admin)
-	return revel.MainRouter.Reverse("User.EditInfo", args).Url
+	return revel.MainRouter.Reverse("User.EditInfo", args).URL
 }
 
 func (_ tUser) AdminPanel(
@@ -975,7 +975,7 @@ func (_ tUser) AdminPanel(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "admin", admin)
-	return revel.MainRouter.Reverse("User.AdminPanel", args).Url
+	return revel.MainRouter.Reverse("User.AdminPanel", args).URL
 }
 
 func (_ tUser) EditPwd(
@@ -984,7 +984,7 @@ func (_ tUser) EditPwd(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "admin", admin)
-	return revel.MainRouter.Reverse("User.EditPwd", args).Url
+	return revel.MainRouter.Reverse("User.EditPwd", args).URL
 }
 
 func (_ tUser) Left(
@@ -993,7 +993,7 @@ func (_ tUser) Left(
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "menu", menu)
-	return revel.MainRouter.Reverse("User.Left", args).Url
+	return revel.MainRouter.Reverse("User.Left", args).URL
 }
 
 
@@ -1005,37 +1005,47 @@ func (_ tJobs) Status(
 		) string {
 	args := make(map[string]string)
 	
-	return revel.MainRouter.Reverse("Jobs.Status", args).Url
+	return revel.MainRouter.Reverse("Jobs.Status", args).URL
 }
 
 
-type tTestRunner struct {}
-var TestRunner tTestRunner
+type tPprof struct {}
+var Pprof tPprof
 
 
-func (_ tTestRunner) Index(
+func (_ tPprof) Profile(
 		) string {
 	args := make(map[string]string)
 	
-	return revel.MainRouter.Reverse("TestRunner.Index", args).Url
+	return revel.MainRouter.Reverse("Pprof.Profile", args).URL
 }
 
-func (_ tTestRunner) Run(
-		suite string,
-		test string,
+func (_ tPprof) Symbol(
 		) string {
 	args := make(map[string]string)
 	
-	revel.Unbind(args, "suite", suite)
-	revel.Unbind(args, "test", test)
-	return revel.MainRouter.Reverse("TestRunner.Run", args).Url
+	return revel.MainRouter.Reverse("Pprof.Symbol", args).URL
 }
 
-func (_ tTestRunner) List(
+func (_ tPprof) Cmdline(
 		) string {
 	args := make(map[string]string)
 	
-	return revel.MainRouter.Reverse("TestRunner.List", args).Url
+	return revel.MainRouter.Reverse("Pprof.Cmdline", args).URL
+}
+
+func (_ tPprof) Trace(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("Pprof.Trace", args).URL
+}
+
+func (_ tPprof) Index(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("Pprof.Index", args).URL
 }
 
 
@@ -1051,7 +1061,7 @@ func (_ tStatic) Serve(
 	
 	revel.Unbind(args, "prefix", prefix)
 	revel.Unbind(args, "filepath", filepath)
-	return revel.MainRouter.Reverse("Static.Serve", args).Url
+	return revel.MainRouter.Reverse("Static.Serve", args).URL
 }
 
 func (_ tStatic) ServeModule(
@@ -1064,40 +1074,46 @@ func (_ tStatic) ServeModule(
 	revel.Unbind(args, "moduleName", moduleName)
 	revel.Unbind(args, "prefix", prefix)
 	revel.Unbind(args, "filepath", filepath)
-	return revel.MainRouter.Reverse("Static.ServeModule", args).Url
+	return revel.MainRouter.Reverse("Static.ServeModule", args).URL
 }
 
 
-type tPprof struct {}
-var Pprof tPprof
+type tTestRunner struct {}
+var TestRunner tTestRunner
 
 
-func (_ tPprof) Profile(
+func (_ tTestRunner) Index(
 		) string {
 	args := make(map[string]string)
 	
-	return revel.MainRouter.Reverse("Pprof.Profile", args).Url
+	return revel.MainRouter.Reverse("TestRunner.Index", args).URL
 }
 
-func (_ tPprof) Symbol(
+func (_ tTestRunner) Suite(
+		suite string,
 		) string {
 	args := make(map[string]string)
 	
-	return revel.MainRouter.Reverse("Pprof.Symbol", args).Url
+	revel.Unbind(args, "suite", suite)
+	return revel.MainRouter.Reverse("TestRunner.Suite", args).URL
 }
 
-func (_ tPprof) Cmdline(
+func (_ tTestRunner) Run(
+		suite string,
+		test string,
 		) string {
 	args := make(map[string]string)
 	
-	return revel.MainRouter.Reverse("Pprof.Cmdline", args).Url
+	revel.Unbind(args, "suite", suite)
+	revel.Unbind(args, "test", test)
+	return revel.MainRouter.Reverse("TestRunner.Run", args).URL
 }
 
-func (_ tPprof) Index(
+func (_ tTestRunner) List(
 		) string {
 	args := make(map[string]string)
 	
-	return revel.MainRouter.Reverse("Pprof.Index", args).Url
+	return revel.MainRouter.Reverse("TestRunner.List", args).URL
 }
 
 

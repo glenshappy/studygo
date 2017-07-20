@@ -66,7 +66,7 @@ func (c *Style) Import(template *models.Template) revel.Result {
 		if len(identity) <= 0 {
 			data["status"] = "0"
 			data["message"] = "请输入风格标识!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			template.Identity = identity
 		}
@@ -75,7 +75,7 @@ func (c *Style) Import(template *models.Template) revel.Result {
 		if len(name) <= 0 {
 			data["status"] = "0"
 			data["message"] = "请输入风格中文名!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			template.Name = name
 		}
@@ -84,7 +84,7 @@ func (c *Style) Import(template *models.Template) revel.Result {
 		if len(author) <= 0 {
 			data["status"] = "0"
 			data["message"] = "请输入风格作者!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			template.Author = author
 		}
@@ -93,7 +93,7 @@ func (c *Style) Import(template *models.Template) revel.Result {
 		if len(version) <= 0 {
 			data["status"] = "0"
 			data["message"] = "请输入风格版本!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			template.Version = version
 		}
@@ -103,7 +103,7 @@ func (c *Style) Import(template *models.Template) revel.Result {
 		if len(status) <= 0 {
 			data["status"] = "0"
 			data["message"] = "请选择状态!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 
 			Status, err := strconv.ParseInt(status, 10, 64)
@@ -117,11 +117,11 @@ func (c *Style) Import(template *models.Template) revel.Result {
 		if template.Save() {
 			data["status"] = "1"
 			data["message"] = "添加风格成功!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			data["status"] = "0"
 			data["message"] = "添加风格失败!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		}
 	}
 }
@@ -136,7 +136,7 @@ func (c *Style) Setstatus(template *models.Template) revel.Result {
 	if len(id) <= 0 {
 		data["status"] = "0"
 		data["message"] = "参数错误!"
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	}
 
 	Id, err := strconv.ParseInt(id, 10, 64)
@@ -149,7 +149,7 @@ func (c *Style) Setstatus(template *models.Template) revel.Result {
 	if len(status) <= 0 {
 		data["status"] = "0"
 		data["message"] = "请选择状态!"
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	} else {
 
 		Status, err := strconv.ParseInt(status, 10, 64)
@@ -163,11 +163,11 @@ func (c *Style) Setstatus(template *models.Template) revel.Result {
 	if template.Setstatus(Id) {
 		data["status"] = "1"
 		data["message"] = "设置成功!"
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	} else {
 		data["status"] = "0"
 		data["message"] = "设置失败!"
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	}
 }
 
@@ -203,7 +203,7 @@ func (c *Style) Edit(template *models.Template) revel.Result {
 		if len(id) <= 0 {
 			data["status"] = "0"
 			data["message"] = "参数错误!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		}
 
 		Id, err := strconv.ParseInt(id, 10, 64)
@@ -215,7 +215,7 @@ func (c *Style) Edit(template *models.Template) revel.Result {
 		if len(identity) <= 0 {
 			data["status"] = "0"
 			data["message"] = "请输入风格标识!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			template.Identity = identity
 		}
@@ -224,7 +224,7 @@ func (c *Style) Edit(template *models.Template) revel.Result {
 		if len(name) <= 0 {
 			data["status"] = "0"
 			data["message"] = "请输入风格中文名!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			template.Name = name
 		}
@@ -233,7 +233,7 @@ func (c *Style) Edit(template *models.Template) revel.Result {
 		if len(author) <= 0 {
 			data["status"] = "0"
 			data["message"] = "请输入风格作者!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			template.Author = author
 		}
@@ -242,7 +242,7 @@ func (c *Style) Edit(template *models.Template) revel.Result {
 		if len(version) <= 0 {
 			data["status"] = "0"
 			data["message"] = "请输入风格版本!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			template.Version = version
 		}
@@ -252,7 +252,7 @@ func (c *Style) Edit(template *models.Template) revel.Result {
 		if len(status) <= 0 {
 			data["status"] = "0"
 			data["message"] = "请选择状态!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 
 			Status, err := strconv.ParseInt(status, 10, 64)
@@ -266,11 +266,11 @@ func (c *Style) Edit(template *models.Template) revel.Result {
 		if template.Edit(Id) {
 			data["status"] = "1"
 			data["message"] = "编辑风格成功!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			data["status"] = "0"
 			data["message"] = "编辑风格失败!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		}
 	}
 }

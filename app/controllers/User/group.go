@@ -46,7 +46,7 @@ func (c *Group) Add(user_group *models.User_Group) revel.Result {
 		if len(name) <= 0 {
 			data["status"] = "0"
 			data["message"] = "请输入会员组名称!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			user_group.Name = name
 		}
@@ -55,7 +55,7 @@ func (c *Group) Add(user_group *models.User_Group) revel.Result {
 		if len(point) <= 0 {
 			data["status"] = "0"
 			data["message"] = "请输入积分!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			Point, err := strconv.ParseInt(point, 10, 64)
 			if err != nil {
@@ -68,7 +68,7 @@ func (c *Group) Add(user_group *models.User_Group) revel.Result {
 		if len(star) <= 0 {
 			data["status"] = "0"
 			data["message"] = "请输入星星数!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			Star, err := strconv.ParseInt(star, 10, 64)
 			if err != nil {
@@ -144,7 +144,7 @@ func (c *Group) Add(user_group *models.User_Group) revel.Result {
 		if len(allowmessage) <= 0 {
 			data["status"] = "0"
 			data["message"] = "请输入最大短消息数!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			Allowmessage, err := strconv.ParseInt(allowmessage, 10, 64)
 			if err != nil {
@@ -157,7 +157,7 @@ func (c *Group) Add(user_group *models.User_Group) revel.Result {
 		if len(allowpostnum) <= 0 {
 			data["status"] = "0"
 			data["message"] = "请输入日最大投稿数!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			Allowpostnum, err := strconv.ParseInt(allowpostnum, 10, 64)
 			if err != nil {
@@ -185,11 +185,11 @@ func (c *Group) Add(user_group *models.User_Group) revel.Result {
 		if user_group.Save() {
 			data["status"] = "1"
 			data["message"] = "添加成功!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			data["status"] = "0"
 			data["message"] = "添加失败!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		}
 	}
 }
@@ -225,7 +225,7 @@ func (c *Group) Edit(user_group *models.User_Group) revel.Result {
 		if len(id) <= 0 {
 			data["status"] = "0"
 			data["message"] = "参数错误，编辑失败!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		}
 
 		Id, err := strconv.ParseInt(id, 10, 64)
@@ -237,7 +237,7 @@ func (c *Group) Edit(user_group *models.User_Group) revel.Result {
 		if len(name) <= 0 {
 			data["status"] = "0"
 			data["message"] = "请输入会员组名称!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			user_group.Name = name
 		}
@@ -246,7 +246,7 @@ func (c *Group) Edit(user_group *models.User_Group) revel.Result {
 		if len(point) <= 0 {
 			data["status"] = "0"
 			data["message"] = "请输入积分!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			Point, err := strconv.ParseInt(point, 10, 64)
 			if err != nil {
@@ -259,7 +259,7 @@ func (c *Group) Edit(user_group *models.User_Group) revel.Result {
 		if len(star) <= 0 {
 			data["status"] = "0"
 			data["message"] = "请输入星星数!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			Star, err := strconv.ParseInt(star, 10, 64)
 			if err != nil {
@@ -335,7 +335,7 @@ func (c *Group) Edit(user_group *models.User_Group) revel.Result {
 		if len(allowmessage) <= 0 {
 			data["status"] = "0"
 			data["message"] = "请输入最大短消息数!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			Allowmessage, err := strconv.ParseInt(allowmessage, 10, 64)
 			if err != nil {
@@ -348,7 +348,7 @@ func (c *Group) Edit(user_group *models.User_Group) revel.Result {
 		if len(allowpostnum) <= 0 {
 			data["status"] = "0"
 			data["message"] = "请输入日最大投稿数!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			Allowpostnum, err := strconv.ParseInt(allowpostnum, 10, 64)
 			if err != nil {
@@ -376,11 +376,11 @@ func (c *Group) Edit(user_group *models.User_Group) revel.Result {
 		if user_group.Edit(Id) {
 			data["status"] = "1"
 			data["message"] = "编辑成功!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			data["status"] = "0"
 			data["message"] = "编辑失败!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		}
 	}
 }

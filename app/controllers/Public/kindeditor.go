@@ -85,7 +85,7 @@ func (c *Kindeditor) Manager(upload *models.Upload) revel.Result {
 	//文件列表数组
 	file["file_list"] = ""
 
-	return c.RenderJson(file)
+	return c.RenderJSON(file)
 }
 
 //内容发布标题缩略图
@@ -106,7 +106,7 @@ func (c *Kindeditor) TitleImage(upload *models.Upload) revel.Result {
 		data["error"] = 1
 		data["message"] = err.Error()
 
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	}
 	defer imgFile.Close()
 
@@ -117,7 +117,7 @@ func (c *Kindeditor) TitleImage(upload *models.Upload) revel.Result {
 		data["error"] = 1
 		data["message"] = "你上传大小为" + utils.FileSize(len(fileData)) + ",文件应小于2M!"
 
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	}
 
 	basepath, _ := filepath.Abs("")
@@ -138,7 +138,7 @@ func (c *Kindeditor) TitleImage(upload *models.Upload) revel.Result {
 		data["error"] = 1
 		data["message"] = "文件只支持Office文件，图片和rar存档!"
 
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	}
 
 	//前台网站调用目录
@@ -156,7 +156,7 @@ func (c *Kindeditor) TitleImage(upload *models.Upload) revel.Result {
 		data["error"] = 1
 		data["message"] = "创建目录失败!"
 
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	}
 
 	//新文件名
@@ -175,7 +175,7 @@ func (c *Kindeditor) TitleImage(upload *models.Upload) revel.Result {
 
 		data["error"] = 1
 		data["message"] = "保存图片失败!"
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	}
 
 	//*******************图片处理****************
@@ -195,7 +195,7 @@ func (c *Kindeditor) TitleImage(upload *models.Upload) revel.Result {
 	data["error"] = 0
 	data["url"] = sitedomain + web_url
 
-	return c.RenderJson(data)
+	return c.RenderJSON(data)
 }
 
 //编辑器上传文件
@@ -217,7 +217,7 @@ func (c *Kindeditor) Upload(upload *models.Upload) revel.Result {
 		data["error"] = 1
 		data["message"] = err.Error()
 
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	}
 	defer imgFile.Close()
 
@@ -228,7 +228,7 @@ func (c *Kindeditor) Upload(upload *models.Upload) revel.Result {
 		data["error"] = 1
 		data["message"] = "你上传大小为" + utils.FileSize(len(fileData)) + ",文件应小于2M!"
 
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	}
 
 	basepath, _ := filepath.Abs("")
@@ -249,7 +249,7 @@ func (c *Kindeditor) Upload(upload *models.Upload) revel.Result {
 		data["error"] = 1
 		data["message"] = "文件只支持Office文件，图片和rar存档!"
 
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	}
 
 	//前台网站调用目录
@@ -267,7 +267,7 @@ func (c *Kindeditor) Upload(upload *models.Upload) revel.Result {
 		data["error"] = 1
 		data["message"] = "创建目录失败!"
 
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	}
 
 	//新文件名
@@ -286,7 +286,7 @@ func (c *Kindeditor) Upload(upload *models.Upload) revel.Result {
 
 		data["error"] = 1
 		data["message"] = "保存图片失败!"
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	}
 
 	//*******************图片处理****************
@@ -322,7 +322,7 @@ func (c *Kindeditor) Upload(upload *models.Upload) revel.Result {
 	data["error"] = 0
 	data["url"] = sitedomain + web_url
 
-	return c.RenderJson(data)
+	return c.RenderJSON(data)
 }
 
 //内容发布标题缩略图
@@ -343,7 +343,7 @@ func (c *Kindeditor) AnnounceImage(upload *models.Upload) revel.Result {
 		data["error"] = 1
 		data["message"] = err.Error()
 
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	}
 	defer imgFile.Close()
 
@@ -354,7 +354,7 @@ func (c *Kindeditor) AnnounceImage(upload *models.Upload) revel.Result {
 		data["error"] = 1
 		data["message"] = "你上传大小为" + utils.FileSize(len(fileData)) + ",文件应小于2M!"
 
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	}
 
 	basepath, _ := filepath.Abs("")
@@ -375,7 +375,7 @@ func (c *Kindeditor) AnnounceImage(upload *models.Upload) revel.Result {
 		data["error"] = 1
 		data["message"] = "文件只支持Office文件，图片和rar存档!"
 
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	}
 
 	//前台网站调用目录
@@ -393,7 +393,7 @@ func (c *Kindeditor) AnnounceImage(upload *models.Upload) revel.Result {
 		data["error"] = 1
 		data["message"] = "创建目录失败!"
 
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	}
 
 	//新文件名
@@ -412,7 +412,7 @@ func (c *Kindeditor) AnnounceImage(upload *models.Upload) revel.Result {
 
 		data["error"] = 1
 		data["message"] = "保存失败!"
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	}
 
 	//*******************图片处理****************
@@ -432,5 +432,5 @@ func (c *Kindeditor) AnnounceImage(upload *models.Upload) revel.Result {
 	data["error"] = 0
 	data["url"] = sitedomain + web_url
 
-	return c.RenderJson(data)
+	return c.RenderJSON(data)
 }

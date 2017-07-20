@@ -286,15 +286,15 @@ func (c Announce) Delete(announce *models.Announce) revel.Result {
 
 			data["status"] = "1"
 			data["message"] = "删除成功!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			data["status"] = "0"
 			data["message"] = "删除失败!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		}
 	} else {
 		data["status"] = "0"
 		data["message"] = "删除失败!"
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	}
 }

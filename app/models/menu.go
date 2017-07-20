@@ -16,7 +16,7 @@ import "strings"
 import "admin/utils"
 import "html/template"
 import "github.com/revel/revel"
-
+import "fmt"
 type Menu struct {
 	Id      int64  `xorm:"pk"`
 	Name    string `xorm:"char(40)"`
@@ -185,7 +185,7 @@ func (m *Menu) GetLeftMenuHtml(Pid int64, Admin_Info *Admin) template.HTML {
 			revel.WARN.Printf("错误: %v", err)
 		}
 	}
-
+	fmt.Println("menus:",menus);
 	//初始化菜单Map
 	menu_list := make(map[int64][]*Menu)
 
@@ -195,9 +195,10 @@ func (m *Menu) GetLeftMenuHtml(Pid int64, Admin_Info *Admin) template.HTML {
 		}
 		menu_list[menu.Pid] = append(menu_list[menu.Pid], menu)
 	}
-
+	fmt.Println("menu_list:",menus);
 	Html := ""
 	for _, menu_second := range menu_list[Pid] {
+		fmt.Printf("menu_sec:%v",menu_second);
 		if Admin_Info.Lang == "zh-cn" {
 			Html += "<h3 class=\"f14\"><span class=\"switchs cu on\" title=\"展开与收缩\"></span>" + menu_second.Name + "</h3>"
 		} else {
@@ -206,6 +207,7 @@ func (m *Menu) GetLeftMenuHtml(Pid int64, Admin_Info *Admin) template.HTML {
 
 		Html += "<ul>"
 		for _, menu_last := range menu_list[menu_second.Id] {
+			fmt.Println("menu_lst:",menu_last);
 			Html += "<li id=\"_MP" + strconv.FormatInt(menu_last.Id, 10) + "\" class=\"sub_menu\">"
 			if Admin_Info.Lang == "zh-cn" {
 				Html += "<a href=\"javascript:_MP(" + strconv.FormatInt(menu_last.Id, 10) + ",'" + menu_last.Url + "');\" hidefocus=\"true\" style=\"outline:none;\">" + menu_last.Name + "</a>"
@@ -457,7 +459,7 @@ func (m *Menu) GetMenuHtml(Admin_Info *Admin) template.HTML {
 
 	Html := ""
 	for _, menu := range menu_list[0] {
-
+		fmt.Println("yijicaidan:",menu);
 		Html += "<tr>"
 		if Admin_Info.Lang == "zh-cn" {
 			Html += "<td align=\"left\"><b>" + menu.Name + "</b></td>"
@@ -495,6 +497,7 @@ func (m *Menu) GetMenuHtml(Admin_Info *Admin) template.HTML {
 		Html += "</tr>"
 
 		for _, menu_second := range menu_list[menu.Id] {
+			fmt.Println("erjicaidan:",menu_second);
 			Html += "<tr>"
 			if Admin_Info.Lang == "zh-cn" {
 				Html += "<td align=\"left\">&nbsp;&nbsp;&#12288;&#8866;&nbsp;&nbsp;" + menu_second.Name + "</td>"
@@ -532,6 +535,7 @@ func (m *Menu) GetMenuHtml(Admin_Info *Admin) template.HTML {
 			Html += "</tr>"
 
 			for _, menu_last := range menu_list[menu_second.Id] {
+				fmt.Println("sanjicaidan:",menu_last);
 				Html += "<tr>"
 				if Admin_Info.Lang == "zh-cn" {
 					Html += "<td align=\"left\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#12288;&#8866;&nbsp;&nbsp;" + menu_last.Name + "</td>"

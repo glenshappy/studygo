@@ -116,17 +116,17 @@ func (c *Ajax) DelPanel(admin_panel *models.Admin_Panel) revel.Result {
 		if is_True {
 			data["status"] = "0"
 			data["message"] = "取消成功!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			data["status"] = "2"
 			data["message"] = "取消失败!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		}
 	} else {
 		data := make(map[string]string)
 		data["status"] = "1"
 		data["message"] = "未登陆!"
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	}
 }
 
@@ -185,7 +185,7 @@ func (c *Ajax) GetMessage() revel.Result {
 
 	data["status"] = "0"
 	data["message"] = "请填写用户名!"
-	return c.RenderJson(data)
+	return c.RenderJSON(data)
 }
 
 //锁屏
@@ -196,7 +196,7 @@ func (c *Ajax) ScreenLock() revel.Result {
 
 	data["status"] = "1"
 	data["message"] = "锁屏!"
-	return c.RenderJson(data)
+	return c.RenderJSON(data)
 }
 
 //解锁

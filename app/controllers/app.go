@@ -18,14 +18,18 @@ import "runtime"
 import "strings"
 import "github.com/revel/revel"
 import "github.com/revel/config"
-import "github.com/shirou/gopsutil"
+//import "github.com/shirou/gopsutil"
+import "github.com/shirou/gopsutil/mem"
+//import "github.com/shirou/gopsutil/host"
 import "admin/app/models"
 import "admin/utils"
 
 type App struct {
 	*revel.Controller
 }
-
+type Host struct {
+	
+}
 //首页
 func (c App) Index(admin *models.Admin) revel.Result {
 	title := "首页--GoCMS管理系统"
@@ -45,16 +49,16 @@ func (c App) Index(admin *models.Admin) revel.Result {
 
 		//导航菜单
 		menu := new(models.Menu)
-		c.RenderArgs["menus"] = menu.GetAdminMenu(0, admin_info)
+		c.ViewArgs["menus"] = menu.GetAdminMenu(0, admin_info)
 
 		//登陆用户信息
-		c.RenderArgs["admin_info"] = admin_info
+		c.ViewArgs["admin_info"] = admin_info
 
 		//是否锁屏
 		if c.Session["lock_screen"] == "" || c.Session["lock_screen"] == "0" {
-			c.RenderArgs["lock_screen"] = "0"
+			c.ViewArgs["lock_screen"] = "0"
 		} else {
-			c.RenderArgs["lock_screen"] = "1"
+			c.ViewArgs["lock_screen"] = "1"
 		}
 	} else {
 		return c.Redirect("/User/Login/")
@@ -113,18 +117,17 @@ func (c App) Main(admin *models.Admin) revel.Result {
 		system_info["mysql_varsion"] = admin.GetMysqlVer()
 
 		//服务器监控
-		memory_info, _ := gopsutil.VirtualMemory()
+		memory_info, _ := mem.VirtualMemory()
 		system_info["main_server_total_memory"] = utils.FileSize(int(memory_info.Total))
 		system_info["main_server_free_memory"] = utils.FileSize(int(memory_info.Free))
 		system_info["main_server_available_memory"] = utils.FileSize(int(memory_info.Available))
 		system_info["main_server_UsedPercent_memory"] = fmt.Sprintf("%10.2f%%", memory_info.UsedPercent)
 
-		host, _ := gopsutil.HostInfo()
-		system_info["main_server_Hostname"] = host.Hostname
-		system_info["main_server_OS"] = host.OS
-		system_info["main_server_Platform"] = host.Platform
-		system_info["main_server_PlatformVersion"] = host.PlatformVersion
-		system_info["main_server_PlatformFamily"] = host.PlatformFamily
+		system_info["main_server_Hostname"] = "ss"
+		system_info["main_server_OS"] = "ee"
+		system_info["main_server_Platform"] = "sss"
+		system_info["main_server_PlatformVersion"] = "1.2"
+		system_info["main_server_PlatformFamily"] = "wwccd"
 
 		//快捷面板
 		admin_panel := new(models.Admin_Panel)

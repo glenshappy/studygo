@@ -68,7 +68,7 @@ func (c *User) Add(user *models.User) revel.Result {
 		if len(username) <= 0 {
 			data["status"] = "0"
 			data["message"] = "请输入用户名!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			user.Username = username
 		}
@@ -76,14 +76,14 @@ func (c *User) Add(user *models.User) revel.Result {
 		if user.HasName() {
 			data["status"] = "0"
 			data["message"] = "用户名‘" + username + "’已有!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		}
 
 		var email string = c.Params.Get("email")
 		if len(email) <= 0 {
 			data["status"] = "0"
 			data["message"] = "请输入邮箱!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			user.Email = email
 		}
@@ -91,26 +91,26 @@ func (c *User) Add(user *models.User) revel.Result {
 		if user.HasEmail() {
 			data["status"] = "0"
 			data["message"] = "邮箱‘" + email + "’已有!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		}
 
 		var password string = c.Params.Get("password")
 		if len(password) <= 0 {
 			data["status"] = "0"
 			data["message"] = "请输入密码!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		}
 
 		var pwdconfirm string = c.Params.Get("pwdconfirm")
 		if len(pwdconfirm) <= 0 {
 			data["status"] = "0"
 			data["message"] = "请输入确认密码!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			if password != pwdconfirm {
 				data["status"] = "0"
 				data["message"] = "两次输入密码不一致!"
-				return c.RenderJson(data)
+				return c.RenderJSON(data)
 			} else {
 				user.Password = password
 			}
@@ -120,7 +120,7 @@ func (c *User) Add(user *models.User) revel.Result {
 		if len(nickname) <= 0 {
 			data["status"] = "0"
 			data["message"] = "请输入昵称!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			user.Nickname = nickname
 		}
@@ -129,7 +129,7 @@ func (c *User) Add(user *models.User) revel.Result {
 		if len(mobile) <= 0 {
 			data["status"] = "0"
 			data["message"] = "请输入手机号码!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			user.Mobile = mobile
 		}
@@ -138,7 +138,7 @@ func (c *User) Add(user *models.User) revel.Result {
 		if len(groupid) <= 0 {
 			data["status"] = "0"
 			data["message"] = "请选择会员组!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			Groupid, err := strconv.ParseInt(groupid, 10, 64)
 			if err != nil {
@@ -152,7 +152,7 @@ func (c *User) Add(user *models.User) revel.Result {
 		if len(islock) <= 0 {
 			data["status"] = "0"
 			data["message"] = "请选择是否定锁!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			Islock, err := strconv.ParseInt(islock, 10, 64)
 			if err != nil {
@@ -166,7 +166,7 @@ func (c *User) Add(user *models.User) revel.Result {
 		if len(point) <= 0 {
 			data["status"] = "0"
 			data["message"] = "请输入积分点数!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			Point, err := strconv.ParseInt(point, 10, 64)
 			if err != nil {
@@ -192,7 +192,7 @@ func (c *User) Add(user *models.User) revel.Result {
 			if len(overduedate) <= 0 {
 				data["status"] = "0"
 				data["message"] = "请选择过期时间!"
-				return c.RenderJson(data)
+				return c.RenderJSON(data)
 			} else {
 				user.Overduedate = overduedate
 			}
@@ -220,11 +220,11 @@ func (c *User) Add(user *models.User) revel.Result {
 		if user.Save() {
 			data["status"] = "1"
 			data["message"] = "添加会员成功!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			data["status"] = "0"
 			data["message"] = "添加会员失败!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		}
 	}
 }
@@ -264,7 +264,7 @@ func (c *User) Edit(user *models.User) revel.Result {
 		if len(id) <= 0 {
 			data["status"] = "0"
 			data["message"] = "参数错误，编辑失败!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		}
 
 		Id, err := strconv.ParseInt(id, 10, 64)
@@ -276,7 +276,7 @@ func (c *User) Edit(user *models.User) revel.Result {
 		if len(email) <= 0 {
 			data["status"] = "0"
 			data["message"] = "请输入邮箱!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			user.Email = email
 		}
@@ -288,7 +288,7 @@ func (c *User) Edit(user *models.User) revel.Result {
 			if password != pwdconfirm {
 				data["status"] = "0"
 				data["message"] = "两次输入密码不一致!"
-				return c.RenderJson(data)
+				return c.RenderJSON(data)
 			} else {
 				user.Password = password
 			}
@@ -298,7 +298,7 @@ func (c *User) Edit(user *models.User) revel.Result {
 		if len(nickname) <= 0 {
 			data["status"] = "0"
 			data["message"] = "请输入昵称!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			user.Nickname = nickname
 		}
@@ -307,7 +307,7 @@ func (c *User) Edit(user *models.User) revel.Result {
 		if len(mobile) <= 0 {
 			data["status"] = "0"
 			data["message"] = "请输入手机号码!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			user.Mobile = mobile
 		}
@@ -316,7 +316,7 @@ func (c *User) Edit(user *models.User) revel.Result {
 		if len(groupid) <= 0 {
 			data["status"] = "0"
 			data["message"] = "请选择会员组!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			Groupid, err := strconv.ParseInt(groupid, 10, 64)
 			if err != nil {
@@ -330,7 +330,7 @@ func (c *User) Edit(user *models.User) revel.Result {
 		if len(islock) <= 0 {
 			data["status"] = "0"
 			data["message"] = "请选择是否定锁!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			Islock, err := strconv.ParseInt(islock, 10, 64)
 			if err != nil {
@@ -344,7 +344,7 @@ func (c *User) Edit(user *models.User) revel.Result {
 		if len(point) <= 0 {
 			data["status"] = "0"
 			data["message"] = "请输入积分点数!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			Point, err := strconv.ParseInt(point, 10, 64)
 			if err != nil {
@@ -368,7 +368,7 @@ func (c *User) Edit(user *models.User) revel.Result {
 			if len(overduedate) <= 0 {
 				data["status"] = "0"
 				data["message"] = "请选择过期时间!"
-				return c.RenderJson(data)
+				return c.RenderJSON(data)
 			} else {
 				user.Vip = 1
 				user.Overduedate = overduedate
@@ -382,11 +382,11 @@ func (c *User) Edit(user *models.User) revel.Result {
 		if user.Edit(Id) {
 			data["status"] = "1"
 			data["message"] = "编辑会员成功!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		} else {
 			data["status"] = "0"
 			data["message"] = "编辑会员失败!"
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		}
 	}
 }
@@ -401,17 +401,17 @@ func (c *User) Delete(user *models.User) revel.Result {
 	if len(ids) <= 0 {
 		data["status"] = "0"
 		data["message"] = "请至少选择一个!"
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	}
 
 	if user.DelByIDS(ids) {
 		data["status"] = "1"
 		data["message"] = "删除成功!"
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	} else {
 		data["status"] = "0"
 		data["message"] = "删除失败!"
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	}
 }
 
@@ -425,17 +425,17 @@ func (c *User) Lock(user *models.User) revel.Result {
 	if len(ids) <= 0 {
 		data["status"] = "0"
 		data["message"] = "请至少选择一个!"
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	}
 
 	if user.Lock(ids) {
 		data["status"] = "1"
 		data["message"] = "锁定成功!"
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	} else {
 		data["status"] = "0"
 		data["message"] = "锁定失败!"
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	}
 }
 
@@ -449,17 +449,17 @@ func (c *User) Unlock(user *models.User) revel.Result {
 	if len(ids) <= 0 {
 		data["status"] = "0"
 		data["message"] = "请至少选择一个!"
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	}
 
 	if user.Unlock(ids) {
 		data["status"] = "1"
 		data["message"] = "解锁成功!"
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	} else {
 		data["status"] = "0"
 		data["message"] = "解锁失败!"
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	}
 }
 
@@ -474,13 +474,13 @@ func (c *User) Move(user *models.User) revel.Result {
 	if len(ids) <= 0 {
 		data["status"] = "0"
 		data["message"] = "请至少选择一个!"
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	}
 
 	if len(groupid) <= 0 {
 		data["status"] = "0"
 		data["message"] = "请选择会员组!"
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	}
 
 	Groupid, err := strconv.ParseInt(groupid, 10, 64)
@@ -491,11 +491,11 @@ func (c *User) Move(user *models.User) revel.Result {
 	if user.Move(Groupid, ids) {
 		data["status"] = "1"
 		data["message"] = "移动成功!"
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	} else {
 		data["status"] = "0"
 		data["message"] = "移动失败!"
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	}
 }
 
@@ -551,32 +551,32 @@ func (c *User) Login(admin *models.Admin) revel.Result {
 			data["status"] = "0"
 			data["url"] = "/"
 			data["message"] = c.Message("verification_code")
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		}
 
 		if len(username) <= 0 {
 			data["status"] = "0"
 			data["url"] = "/"
 			data["message"] = c.Message("login_user_name")
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		}
 
 		if len(password) <= 0 {
 			data["status"] = "0"
 			data["url"] = "/"
 			data["message"] = c.Message("login_password")
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		}
 
 		if len(verify) <= 0 {
 			data["status"] = "0"
 			data["url"] = "/"
 			data["message"] = c.Message("login_verification_code")
-			return c.RenderJson(data)
+			return c.RenderJSON(data)
 		}
 
 		admin_info := admin.GetByName(username)
-
+		fmt.Println(username,admin_info);
 		if admin_info.Id <= 0 {
 			data["status"] = "0"
 			data["url"] = "/"
@@ -640,7 +640,7 @@ func (c *User) Login(admin *models.Admin) revel.Result {
 			data["message"] = c.Message("login_password_error")
 		}
 
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	}
 }
 
@@ -904,6 +904,7 @@ func (c *User) Left(menu *models.Menu) revel.Result {
 			left_menu := menu.GetLeftMenuHtml(Pid, admin_info)
 
 			c.Render(title, left_menu)
+			fmt.Println("left_menu1:",left_menu);
 		} else {
 			c.Render(title)
 		}
@@ -924,6 +925,7 @@ func (c *User) Left(menu *models.Menu) revel.Result {
 			left_menu := menu.GetLeftMenuHtml(1, admin_info)
 
 			c.Render(title, left_menu)
+			fmt.Println("left_menu2:",left_menu);
 		} else {
 			c.Render(title)
 		}

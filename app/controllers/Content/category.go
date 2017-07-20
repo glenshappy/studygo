@@ -430,5 +430,5 @@ func (c Category) Delete(category *models.Category) revel.Result {
 		data["message"] = "删除失败!"
 	}
 
-	return c.RenderJson(data)
+	return c.RenderJSON(data)
 }

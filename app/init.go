@@ -11,7 +11,7 @@
 package app
 
 import "github.com/revel/revel"
-
+import "fmt"
 func init() {
 	// Filters is the default set of global filters.
 	revel.Filters = []revel.Filter{
@@ -28,7 +28,7 @@ func init() {
 		revel.CompressFilter,          // Compress the result.
 		revel.ActionInvoker,           // Invoke the action.
 	}
-
+	fmt.Sprintln("3334444");
 	// register startup functions with OnAppStart
 	// ( order dependent )
 	// revel.OnAppStart(InitDB())

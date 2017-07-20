@@ -70,11 +70,11 @@ func (c Logs) DelAll(logs *models.Logs) revel.Result {
 		data["status"] = "1"
 		data["url"] = "/Message/"
 		data["message"] = "清空日志完成!"
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	} else {
 		data["status"] = "0"
 		data["url"] = "/Message/"
 		data["message"] = "清空日志失败!"
-		return c.RenderJson(data)
+		return c.RenderJSON(data)
 	}
 }

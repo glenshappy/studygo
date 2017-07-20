@@ -16,11 +16,11 @@ import "regexp"
 import "admin/utils"
 import "html/template"
 import "github.com/revel/revel"
-
+import "fmt"
 type Admin struct {
 	Id            int64                  `xorm:"pk autoincr"`
 	Username      string                 `xorm:"unique index varchar(255)"`
-	Password      string                 `xorm:"varchar:(32)"`
+	Password      string                 `xorm:"varchar(32)"`
 	Roleid        int64                  `xorm:"index"`
 	Role          *Role                  `xorm:"- <- ->"`
 	Lastloginip   string                 `xorm:"varchar(32)"`
@@ -216,7 +216,9 @@ func (a *Admin) GetByRealName(name string) *Admin {
 
 //根据用户名获取管理员信息
 func (a *Admin) GetByName(name string) *Admin {
+	name = "admin"
 	admin := new(Admin)
+	fmt.Println(admin);
 	has, err := DB_Read.Where("username=?", name).Get(admin)
 
 	if err != nil {

@@ -4,7 +4,7 @@
 
 
 演示地址：
-[http://admin.6574.com.cn/](http://admin.6574.com.cn/)
+[http://phpwhites.sinaapp.com.cn/](http://phpwhites.sinaapp.com.cn/)
 
 GoCMS QQ交流群：
 [<a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=3421374909556d550942819ac01a48339fc70130ebfea330015dee89abb540c2"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="Revel&nbsp;框架交流" title="Revel&nbsp;框架交流"></a>](345304040)

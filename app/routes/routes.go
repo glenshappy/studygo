@@ -416,6 +416,41 @@ func (_ tPlugin) Index(
 }
 
 
+type tPublic struct {}
+var Public tPublic
+
+
+func (_ tPublic) Map(
+		menu interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "menu", menu)
+	return revel.MainRouter.Reverse("Public.Map", args).URL
+}
+
+func (_ tPublic) CreateHtml(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("Public.CreateHtml", args).URL
+}
+
+func (_ tPublic) Search(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("Public.Search", args).URL
+}
+
+func (_ tPublic) Message(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("Public.Message", args).URL
+}
+
+
 type tKindeditor struct {}
 var Kindeditor tKindeditor
 
@@ -561,38 +596,67 @@ func (_ tTest) Index(
 }
 
 
-type tPublic struct {}
-var Public tPublic
+type tMenu struct {}
+var Menu tMenu
 
 
-func (_ tPublic) Map(
+func (_ tMenu) Index(
 		menu interface{},
 		) string {
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "menu", menu)
-	return revel.MainRouter.Reverse("Public.Map", args).URL
+	return revel.MainRouter.Reverse("Menu.Index", args).URL
 }
 
-func (_ tPublic) CreateHtml(
+func (_ tMenu) Add(
+		menu interface{},
 		) string {
 	args := make(map[string]string)
 	
-	return revel.MainRouter.Reverse("Public.CreateHtml", args).URL
+	revel.Unbind(args, "menu", menu)
+	return revel.MainRouter.Reverse("Menu.Add", args).URL
 }
 
-func (_ tPublic) Search(
+func (_ tMenu) Edit(
+		menu interface{},
 		) string {
 	args := make(map[string]string)
 	
-	return revel.MainRouter.Reverse("Public.Search", args).URL
+	revel.Unbind(args, "menu", menu)
+	return revel.MainRouter.Reverse("Menu.Edit", args).URL
 }
 
-func (_ tPublic) Message(
+func (_ tMenu) Delete(
+		menu interface{},
 		) string {
 	args := make(map[string]string)
 	
-	return revel.MainRouter.Reverse("Public.Message", args).URL
+	revel.Unbind(args, "menu", menu)
+	return revel.MainRouter.Reverse("Menu.Delete", args).URL
+}
+
+
+type tLogs struct {}
+var Logs tLogs
+
+
+func (_ tLogs) Index(
+		logs interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "logs", logs)
+	return revel.MainRouter.Reverse("Logs.Index", args).URL
+}
+
+func (_ tLogs) DelAll(
+		logs interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "logs", logs)
+	return revel.MainRouter.Reverse("Logs.DelAll", args).URL
 }
 
 
@@ -717,70 +781,6 @@ func (_ tAdmin) Delete(
 	
 	revel.Unbind(args, "admin", admin)
 	return revel.MainRouter.Reverse("Admin.Delete", args).URL
-}
-
-
-type tMenu struct {}
-var Menu tMenu
-
-
-func (_ tMenu) Index(
-		menu interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "menu", menu)
-	return revel.MainRouter.Reverse("Menu.Index", args).URL
-}
-
-func (_ tMenu) Add(
-		menu interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "menu", menu)
-	return revel.MainRouter.Reverse("Menu.Add", args).URL
-}
-
-func (_ tMenu) Edit(
-		menu interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "menu", menu)
-	return revel.MainRouter.Reverse("Menu.Edit", args).URL
-}
-
-func (_ tMenu) Delete(
-		menu interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "menu", menu)
-	return revel.MainRouter.Reverse("Menu.Delete", args).URL
-}
-
-
-type tLogs struct {}
-var Logs tLogs
-
-
-func (_ tLogs) Index(
-		logs interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "logs", logs)
-	return revel.MainRouter.Reverse("Logs.Index", args).URL
-}
-
-func (_ tLogs) DelAll(
-		logs interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "logs", logs)
-	return revel.MainRouter.Reverse("Logs.DelAll", args).URL
 }
 
 

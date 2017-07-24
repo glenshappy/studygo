@@ -11,7 +11,10 @@
 package app
 
 import "github.com/revel/revel"
-import "fmt"
+import (
+	"time"
+	"fmt"
+)
 func init() {
 	// Filters is the default set of global filters.
 	revel.Filters = []revel.Filter{
@@ -28,7 +31,19 @@ func init() {
 		revel.CompressFilter,          // Compress the result.
 		revel.ActionInvoker,           // Invoke the action.
 	}
-	fmt.Sprintln("3334444");
+	//a 需要格式化的时间戳，b为格式成的格式
+	revel.TemplateFuncs["format_time"] = func(a,b interface{}) string {
+		tmpTimestamp,err:=a.(int64);
+		if err!=false {
+			fmt.Println("error %v",err);
+		}
+		tmpFormat,err1:=b.(string)
+		if err1!=false {
+			fmt.Println("error %v",err1);
+		}
+		tm:=time.Unix(tmpTimestamp,0);
+		return tm.Format(tmpFormat);
+	};
 	// register startup functions with OnAppStart
 	// ( order dependent )
 	// revel.OnAppStart(InitDB())

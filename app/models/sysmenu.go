@@ -12,7 +12,7 @@ package models
 
 //系统菜单
 import "fmt"
-//import "time"
+import "time"
 import "admin/utils"
 import "html/template"
 import "github.com/revel/revel"
@@ -26,6 +26,7 @@ type Sysmenu struct {
 	Optime      int64       `xorm:"int(11)"`
 	Pid         int64       `xorm:"int(11)"`
 	Status      int8        `xorm:"tinyint(1)"`
+	Createtime int64        `xorm:"int(11)"` 
 }
 
 //根据Id获取信息
@@ -114,4 +115,32 @@ func (u *Sysmenu) GetSysmenuList(search string, Page int64, Perpage int64) (user
 	}
 
 	return user_list, pages, where
+}
+
+func (u *Sysmenu) Save() bool {
+     var data *Sysmenu = new(Sysmenu);
+     data.Cn_name = u.Cn_name;
+     data.En_name = u.En_name;
+     data.Remark = u.Remark;
+     data.Createtime = time.Now().Unix();
+     has,err:=DB_Write.Table("sysmenu").Insert(data);
+     if err!=nil {
+		revel.WARN.Println(has);
+		revel.WARN.Printf("错误：%v",err);
+		return false;
+	}
+     return true;
+}
+func (u *Sysmenu) Edit(Id int64) bool {
+        user := new(Sysmenu)
+	user.Remark = u.Remark;
+        user.En_name = u.En_name
+        user.Cn_name = u.Cn_name
+        has, err := DB_Write.Table("sysmenu").Id(Id).Cols("cn_name", "en_name", "remark").Update(user)
+        if err != nil {
+                revel.WARN.Println(has)
+                revel.WARN.Printf("错误: %v", err)
+                return false
+        }
+        return true
 }

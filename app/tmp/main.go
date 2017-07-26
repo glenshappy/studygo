@@ -279,10 +279,31 @@ func main() {
 			&revel.MethodType{
 				Name: "EditAuthorize",
 				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "sysmenumodel", Type: reflect.TypeOf((**models.Sysmenu)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					41: []string{ 
+					42: []string{ 
 						"ac",
+					},
+				},
+			},
+			&revel.MethodType{
+				Name: "Add",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "sysmenumodel", Type: reflect.TypeOf((**models.Sysmenu)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+				},
+			},
+			&revel.MethodType{
+				Name: "Edit",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "sysmenumodel", Type: reflect.TypeOf((**models.Sysmenu)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+					102: []string{ 
+						"title",
+						"menu_id",
 					},
 				},
 			},
@@ -719,6 +740,37 @@ func main() {
 			
 		})
 	
+	revel.RegisterController((*controllers3.Complaints)(nil),
+		[]*revel.MethodType{
+			&revel.MethodType{
+				Name: "Index",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "complaints", Type: reflect.TypeOf((**models.Complaints)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+					35: []string{ 
+						"title",
+						"complaints_list",
+						"pages",
+					},
+					38: []string{ 
+						"title",
+						"complaints_list",
+						"pages",
+					},
+				},
+			},
+			&revel.MethodType{
+				Name: "Delete",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "complaints", Type: reflect.TypeOf((**models.Complaints)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+				},
+			},
+			
+		})
+	
 	revel.RegisterController((*controllers3.Module)(nil),
 		[]*revel.MethodType{
 			&revel.MethodType{
@@ -784,37 +836,6 @@ func main() {
 				Name: "Delete",
 				Args: []*revel.MethodArg{ 
 					&revel.MethodArg{Name: "announce", Type: reflect.TypeOf((**models.Announce)(nil)) },
-				},
-				RenderArgNames: map[int][]string{ 
-				},
-			},
-			
-		})
-	
-	revel.RegisterController((*controllers3.Complaints)(nil),
-		[]*revel.MethodType{
-			&revel.MethodType{
-				Name: "Index",
-				Args: []*revel.MethodArg{ 
-					&revel.MethodArg{Name: "complaints", Type: reflect.TypeOf((**models.Complaints)(nil)) },
-				},
-				RenderArgNames: map[int][]string{ 
-					35: []string{ 
-						"title",
-						"complaints_list",
-						"pages",
-					},
-					38: []string{ 
-						"title",
-						"complaints_list",
-						"pages",
-					},
-				},
-			},
-			&revel.MethodType{
-				Name: "Delete",
-				Args: []*revel.MethodArg{ 
-					&revel.MethodArg{Name: "complaints", Type: reflect.TypeOf((**models.Complaints)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
 				},
@@ -1032,6 +1053,33 @@ func main() {
 				RenderArgNames: map[int][]string{ 
 					60: []string{ 
 					},
+				},
+			},
+			
+		})
+	
+	revel.RegisterController((*controllers7.Logs)(nil),
+		[]*revel.MethodType{
+			&revel.MethodType{
+				Name: "Index",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "logs", Type: reflect.TypeOf((**models.Logs)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+					38: []string{ 
+						"title",
+						"logs_list",
+						"where",
+						"pages",
+					},
+				},
+			},
+			&revel.MethodType{
+				Name: "DelAll",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "logs", Type: reflect.TypeOf((**models.Logs)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
 				},
 			},
 			
@@ -1298,33 +1346,6 @@ func main() {
 				Name: "Delete",
 				Args: []*revel.MethodArg{ 
 					&revel.MethodArg{Name: "menu", Type: reflect.TypeOf((**models.Menu)(nil)) },
-				},
-				RenderArgNames: map[int][]string{ 
-				},
-			},
-			
-		})
-	
-	revel.RegisterController((*controllers7.Logs)(nil),
-		[]*revel.MethodType{
-			&revel.MethodType{
-				Name: "Index",
-				Args: []*revel.MethodArg{ 
-					&revel.MethodArg{Name: "logs", Type: reflect.TypeOf((**models.Logs)(nil)) },
-				},
-				RenderArgNames: map[int][]string{ 
-					38: []string{ 
-						"title",
-						"logs_list",
-						"where",
-						"pages",
-					},
-				},
-			},
-			&revel.MethodType{
-				Name: "DelAll",
-				Args: []*revel.MethodArg{ 
-					&revel.MethodArg{Name: "logs", Type: reflect.TypeOf((**models.Logs)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
 				},

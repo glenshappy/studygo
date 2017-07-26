@@ -172,10 +172,30 @@ func (_ tAuthorize) Index(
 }
 
 func (_ tAuthorize) EditAuthorize(
+		sysmenumodel interface{},
 		) string {
 	args := make(map[string]string)
 	
+	revel.Unbind(args, "sysmenumodel", sysmenumodel)
 	return revel.MainRouter.Reverse("Authorize.EditAuthorize", args).URL
+}
+
+func (_ tAuthorize) Add(
+		sysmenumodel interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "sysmenumodel", sysmenumodel)
+	return revel.MainRouter.Reverse("Authorize.Add", args).URL
+}
+
+func (_ tAuthorize) Edit(
+		sysmenumodel interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "sysmenumodel", sysmenumodel)
+	return revel.MainRouter.Reverse("Authorize.Edit", args).URL
 }
 
 
@@ -468,6 +488,29 @@ func (_ tCopyfrom) Delete(
 }
 
 
+type tComplaints struct {}
+var Complaints tComplaints
+
+
+func (_ tComplaints) Index(
+		complaints interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "complaints", complaints)
+	return revel.MainRouter.Reverse("Complaints.Index", args).URL
+}
+
+func (_ tComplaints) Delete(
+		complaints interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "complaints", complaints)
+	return revel.MainRouter.Reverse("Complaints.Delete", args).URL
+}
+
+
 type tModule struct {}
 var Module tModule
 
@@ -518,29 +561,6 @@ func (_ tAnnounce) Delete(
 	
 	revel.Unbind(args, "announce", announce)
 	return revel.MainRouter.Reverse("Announce.Delete", args).URL
-}
-
-
-type tComplaints struct {}
-var Complaints tComplaints
-
-
-func (_ tComplaints) Index(
-		complaints interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "complaints", complaints)
-	return revel.MainRouter.Reverse("Complaints.Index", args).URL
-}
-
-func (_ tComplaints) Delete(
-		complaints interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "complaints", complaints)
-	return revel.MainRouter.Reverse("Complaints.Delete", args).URL
 }
 
 
@@ -748,6 +768,29 @@ func (_ tPublic) Message(
 }
 
 
+type tLogs struct {}
+var Logs tLogs
+
+
+func (_ tLogs) Index(
+		logs interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "logs", logs)
+	return revel.MainRouter.Reverse("Logs.Index", args).URL
+}
+
+func (_ tLogs) DelAll(
+		logs interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "logs", logs)
+	return revel.MainRouter.Reverse("Logs.DelAll", args).URL
+}
+
+
 type tRole struct {}
 var Role tRole
 
@@ -910,29 +953,6 @@ func (_ tMenu) Delete(
 	
 	revel.Unbind(args, "menu", menu)
 	return revel.MainRouter.Reverse("Menu.Delete", args).URL
-}
-
-
-type tLogs struct {}
-var Logs tLogs
-
-
-func (_ tLogs) Index(
-		logs interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "logs", logs)
-	return revel.MainRouter.Reverse("Logs.Index", args).URL
-}
-
-func (_ tLogs) DelAll(
-		logs interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "logs", logs)
-	return revel.MainRouter.Reverse("Logs.DelAll", args).URL
 }
 
 

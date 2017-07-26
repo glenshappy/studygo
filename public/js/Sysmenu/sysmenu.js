@@ -9,311 +9,47 @@
 // +----------------------------------------------------------------------
 
 /**
- * 用户管理
+ * 菜单管理
  */
 
-//添加菜单
-function add() {
-	art.dialog.open('/EditAuthorize/', {
-		id : 'sysmenu_add',
-		title : '添加菜单',
-		width : 700,
-		height : 500,
-		lock : true,
-		ok : function() {
-			var iframe = this.iframe.contentWindow;
+//添加和修改操作
+//
+function update(menu_name,action) {
+	if(action=="add"){
+		 art.dialog.open('/EditAuthorize/', {
+                id : 'sysmenu_add',
+                title : menu_name,
+                width : 700,
+                height : 500,
+                lock : true,
+                ok : function() {
+                        var iframe = this.iframe.contentWindow;
 
-			var par = [];
+                        var pars = {};
 
-			var username = iframe.$('#username').val();
-			if (username == '') {
-				iframe.$('#usernameTip').removeClass("onShow").addClass("onError").html('请输入用户名!');
-				return false;
-			}else{
-				iframe.$('#usernameTip').removeClass("onError").addClass("onCorrect").html('输入正确');
-				var pars = "username=" + username;
-				par.push(pars);
-			}
+                        var cn_name = iframe.$('#cn_name').val();
+                        var en_name = iframe.$('#en_name').val();
+                        pars.cn_name = cn_name;
+                        pars.en_name = en_name;
+                        pars.remark = iframe.$('#remark').val();
+                        $.ajax({
+                                type : "POST",
+                                url : "/Authorize/Add/",
+                                data : pars,
+                                success : function(tmp) {
+                                        if (tmp.status == 1) {
+                                                window.location.reload();
+                                                notice_tips("添加菜单成功!");
+                                        } else {
+                                                notice_tips(tmp.message);
+                                        }
+                                }
+                        });
+                },
+                cancel : true
+        });
 
-			var password = iframe.$('#password').val();
-			if (password == '') {
-				iframe.$('#passwordTip').removeClass("onShow").addClass("onError").html('请输入密码!');
-				return false;
-			}else{
-				iframe.$('#passwordTip').removeClass("onError").addClass("onCorrect").html('输入正确');
-				var pars = "password=" + password;
-				par.push(pars);
-			}
-
-			var pwdconfirm = iframe.$('#pwdconfirm').val();
-			if (pwdconfirm == '') {
-				iframe.$('#pwdconfirmTip').removeClass("onShow").addClass("onError").html('请输入确认密码!');
-				return false;
-			}else{
-				if(password != pwdconfirm) {
-					iframe.$('#pwdconfirmTip').removeClass("onShow").addClass("onError").html('两次输入密码不一致!');
-					return false;
-				}
-				iframe.$('#pwdconfirmTip').removeClass("onError").addClass("onCorrect").html('输入正确');
-				var pars = "pwdconfirm=" + pwdconfirm;
-				par.push(pars);
-			}
-
-			var nickname = iframe.$('#nickname').val();
-			if (nickname == '') {
-				iframe.$('#nicknameTip').removeClass("onShow").addClass("onError").html('请输入昵称!');
-				return false;
-			}else{
-				iframe.$('#nicknameTip').removeClass("onError").addClass("onCorrect").html('输入正确');
-				var pars = "nickname=" + nickname;
-				par.push(pars);
-			}
-
-			var email = iframe.$('#email').val();
-			if (email == '') {
-				iframe.$('#emailTip').removeClass("onShow").addClass("onError").html('请输入邮箱!');
-				return false;
-			}else{
-				iframe.$('#emailTip').removeClass("onError").addClass("onCorrect").html('输入正确');
-				var pars = "email=" + email;
-				par.push(pars);
-			}
-
-			var mobile = iframe.$('#mobile').val();
-			if (mobile == '') {
-				iframe.$('#mobileTip').removeClass("onShow").addClass("onError").html('请输入手机号码!');
-				return false;
-			}else{
-				iframe.$('#mobileTip').removeClass("onError").addClass("onCorrect").html('输入正确');
-				var pars = "mobile=" + mobile;
-				par.push(pars);
-			}
-
-			var groupid = iframe.$('#groupid').val();
-			if (groupid == '') {
-				iframe.$('#groupidTip').removeClass("onShow").addClass("onError").html('请选择会员组!');
-				return false;
-			}else{
-				iframe.$('#groupidTip').removeClass("onError").addClass("onCorrect").html('输入正确');
-				var pars = "groupid=" + groupid;
-				par.push(pars);
-			}
-
-			var islock = iframe.$('#islock').val();
-			if (islock == '') {
-				iframe.$('#islockTip').removeClass("onShow").addClass("onError").html('请选择是否定锁!');
-				return false;
-			}else{
-				iframe.$('#islockTip').removeClass("onError").addClass("onCorrect").html('选择正确');
-				var pars = "islock=" + islock;
-				par.push(pars);
-			}
-
-			var point = iframe.$('#point').val();
-			if (point == '') {
-				iframe.$('#pointtip').removeClass("onShow").addClass("onError").html('请输入积分点数!');
-				return false;
-			}else{
-				iframe.$('#pointtip').removeClass("onError").addClass("onCorrect").html('输入正确');
-				var pars = "point=" + point;
-				par.push(pars);
-			}
-
-			if (iframe.$("#vip").is(":checked")) {
-
-				var pars = "vip=1";
-				par.push(pars);
-
-				var overduedate = iframe.$('#overduedate').val();
-
-				if (overduedate == "") {
-					iframe.$('#overduedateTip').removeClass("onShow").addClass("onError").html('请选择过期时间!');
-					return false;
-				}else{
-					var pars = "overduedate=" + overduedate;
-					par.push(pars);
-				}				
-			}else{
-				var pars = "vip=0";
-				par.push(pars);
-			}
-
-			var birthday = iframe.$('#birthday').val();
-			var pars = "birthday=" + birthday;
-			par.push(pars);
-
-			var pars = "csrf_token=" + csrf_token;
-			par.push(pars);
-
-			pars = par.join("&");
-
-			$.ajax({
-				type : "POST",
-				url : "/EditAuthorize/",
-				data : pars,
-				success : function(tmp) {
-					if (tmp.status == 1) {
-						window.location.reload();
-						notice_tips("添加菜单成功!");
-					} else {
-						notice_tips(tmp.message);
-					}
-				}
-			});
-		},
-		cancel : true
-	});
-}
-
-/**
- * 编辑用户
- */
-function edit(uid) {
-	if (uid == '') {
-		notice_tips("参数错误!");
-		return false;
-	}
-
-	art.dialog.open('/User/edit/' + uid + '/', {
-		id : 'user_edit',
-		title : '编辑用户',
-		width : 700,
-		height : 500,
-		lock : true,
-		ok : function() {
-			var iframe = this.iframe.contentWindow;
-
-			var par = [];
-
-			var pars = "id=" + uid;
-			par.push(pars);
-
-			var password = iframe.$('#password').val();
-			if (password == '') {
-				
-			}else{
-				iframe.$('#passwordTip').removeClass("onError").addClass("onCorrect").html('输入正确');
-				var pars = "password=" + password;
-				par.push(pars);
-			}
-
-			var pwdconfirm = iframe.$('#pwdconfirm').val();
-			if (pwdconfirm == '') {
-				
-			}else{
-				if(password != pwdconfirm) {
-					iframe.$('#pwdconfirmTip').removeClass("onShow").addClass("onError").html('两次输入密码不一致!');
-					return false;
-				}
-				iframe.$('#pwdconfirmTip').removeClass("onError").addClass("onCorrect").html('输入正确');
-				var pars = "pwdconfirm=" + pwdconfirm;
-				par.push(pars);
-			}
-
-			var nickname = iframe.$('#nickname').val();
-			if (nickname == '') {
-				iframe.$('#nicknameTip').removeClass("onShow").addClass("onError").html('请输入昵称!');
-				return false;
-			}else{
-				iframe.$('#nicknameTip').removeClass("onError").addClass("onCorrect").html('输入正确');
-				var pars = "nickname=" + nickname;
-				par.push(pars);
-			}
-
-			var email = iframe.$('#email').val();
-			if (email == '') {
-				iframe.$('#emailTip').removeClass("onShow").addClass("onError").html('请输入邮箱!');
-				return false;
-			}else{
-				iframe.$('#emailTip').removeClass("onError").addClass("onCorrect").html('输入正确');
-				var pars = "email=" + email;
-				par.push(pars);
-			}
-
-			var mobile = iframe.$('#mobile').val();
-			if (mobile == '') {
-				iframe.$('#mobileTip').removeClass("onShow").addClass("onError").html('请输入邮箱!');
-				return false;
-			}else{
-				iframe.$('#mobileTip').removeClass("onError").addClass("onCorrect").html('输入正确');
-				var pars = "mobile=" + mobile;
-				par.push(pars);
-			}
-
-			var groupid = iframe.$('#groupid').val();
-			if (groupid == '') {
-				iframe.$('#groupidTip').removeClass("onShow").addClass("onError").html('请选择会员组!');
-				return false;
-			}else{
-				iframe.$('#groupidTip').removeClass("onError").addClass("onCorrect").html('输入正确');
-				var pars = "groupid=" + groupid;
-				par.push(pars);
-			}
-
-			var islock = iframe.$('#islock').val();
-			if (islock == '') {
-				iframe.$('#islockTip').removeClass("onShow").addClass("onError").html('请选择是否定锁!');
-				return false;
-			}else{
-				iframe.$('#islockTip').removeClass("onError").addClass("onCorrect").html('选择正确');
-				var pars = "islock=" + islock;
-				par.push(pars);
-			}
-
-			var point = iframe.$('#point').val();
-			if (point == '') {
-				iframe.$('#pointtip').removeClass("onShow").addClass("onError").html('请输入积分点数!');
-				return false;
-			}else{
-				iframe.$('#pointtip').removeClass("onError").addClass("onCorrect").html('输入正确');
-				var pars = "point=" + point;
-				par.push(pars);
-			}
-
-			if (iframe.$("#vip").is(":checked")) {
-
-				var pars = "vip=1";
-				par.push(pars);
-
-				var overduedate = iframe.$('#overduedate').val();
-
-				if (overduedate == "") {
-					iframe.$('#overduedateTip').removeClass("onShow").addClass("onError").html('请选择过期时间!');
-					return false;
-				}else{
-					var pars = "overduedate=" + overduedate;
-					par.push(pars);
-				}				
-			}else{
-				var pars = "vip=0";
-				par.push(pars);
-			}
-
-			var birthday = iframe.$('#birthday').val();
-			var pars = "birthday=" + birthday;
-			par.push(pars);
-
-			var pars = "csrf_token=" + csrf_token;
-			par.push(pars);
-
-			pars = par.join("&");
-
-			$.ajax({
-				type : "POST",
-				url : "/User/edit/",
-				data : pars,
-				success : function(tmp) {
-					if (tmp.status == 1) {
-						window.location.reload();
-						notice_tips("编辑用户成功!");
-					} else {
-						notice_tips(tmp.message);
-					}
-				}
-			});
-		},
-		cancel : true
-	});
+        }
 }
 
 /**

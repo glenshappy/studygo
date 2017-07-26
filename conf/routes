@@ -60,6 +60,9 @@ GET /Authorize/                                 Authorize.Index
 GET /EditAuthorize/                             Authorize.EditAuthorize
 POST /EditAuthoize/                             Authorize.EditAuthorize
 GET /Authorize/:page/                           Authorize.Index
+POST /Authorize/Add                             Authorize.Add
+POST /Authorize/Edit                            Authorize.Edit
+#POST /UpdateAuthorize/                          Authorize.UpdateAuthorize
 # 模块
 GET     /Module/                              	Module.Index
 
